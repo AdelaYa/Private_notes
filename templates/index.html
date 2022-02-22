@@ -7,14 +7,15 @@
     <div class="card">
       <div class="card-header">
         <span class="text-muted">Автор: {{ note.author }} | {{ note.date }}</span>
+        <a href="{% url 'note_edit' note.pk %}">Редактировать</a> | <a href="{% url 'note_delete' note.pk %}"><font color="red">Удалить</font></a>
         </div>
       <div class="card-body">
-        {{ note.text }}
+        {{ note.text|safe }}
       </div>
       </div>
       <br>
     {% endif %}
   {% endfor %}
-
 {% endif %}
+
 {% endblock content %}
